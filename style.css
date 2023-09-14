@@ -106,41 +106,68 @@ h2 {
 }
 
 .headshot {
-    width: 400px;
-    height: 400px;
-    margin-left: 40px;
-    margin-top: -290px;
+    width: 300px;
+    height: 300px;
+    margin-left: 100px;
+    margin-top: -190px;
 }
 
 .bio h2 {
     font-weight: bold;
     font-size: 1em;
-    margin-bottom: 10px;
+    margin-bottom: -22px;
     margin-left: 2px;
+    color: rgb(58, 57, 57);
+}
+
+.bio h3 {
+    font-weight: bold;
+    font-size: 2em;
+    color: rgb(58, 57, 57);
+}
+
+.bio h4 {
+    font-weight: bold;
+    font-size: 2em;
+    color: rgb(58, 57, 57);
+}
+
+.my-map h5 {
+    margin-left: 107px;
+    font-weight: bold;
+    font-size: 2em;
+    color: rgb(58, 57, 57);
 }
 
 .bio {
     max-width: 600px;
     margin-left: 440px;
-    margin-top: -860px;
-    font-size: 1.2em;
+    margin-top: -820px;
+    font-size: 1em;
 }
 
 .info {
     margin-top: 10px;
-    margin-left: 40px;
+    margin-left: 100px;
 }
 
 .label {
     font-weight: bold;
 }
 
+.label-2 {
+    text-shadow: 0.5px 0.5px 0px black, 0.5px 0.5px 0px black, 0.5px 0.5px 0px black, 0.5px 0.5px 0px black;
+    font-weight: 100;
+    font-style: italic;
+}
+
 .playlists-section {
-    margin-top: 170px;
+    margin-top: -200px;
     padding: 10px;
 }
 
 .playlists-section h2 {
+    color: rgb(58, 57, 57);
     font-size: 1.5em;
     margin-left: 105px;
     margin-top: -110px;
@@ -230,8 +257,8 @@ h2 {
 #map { height: 180px; }
 
 .map-intro {
-    margin-top: 120px;
-    margin-left: 330px;
+    margin-top: 20px;
+    margin-left: 106px;
     font-size: 1em;
 }
 
@@ -239,11 +266,16 @@ h2 {
     position: fixed;
     top: 30px;
     left: 60px;
-    padding: 0px; /* Padding inside the button */
+    text-decoration: none; /* Remove the default underline */
+    background-image: linear-gradient(to right, orange, purple), linear-gradient(gray, gray); /* Add a gray line and set the initial state of the gradient line */
+    background-size: 0% 2px, 100% 2px; /* Set the initial size of the gradient line to 0% and the gray line to 100% */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center bottom, center bottom; /* Position both background images at the center bottom */
+    transition: background-size 0.1s;
 }
 
 .back-button:hover {
-    border-bottom: 1px solid #000; /* Added border-bottom on hover for underlining effect */
+    background-size: 100% 2px, 0% 1px;
 }
 
 
@@ -267,4 +299,55 @@ h2 {
     animation: fadeIn 2s forwards;
     animation-delay: 2s; /* adjust the delay as per your preference */
 }
+
+.interactive-map-link {
+    font-weight: bold;
+    color: black; /* Set the text color to black */
+    text-decoration: none; /* Remove the default underline */
+    background-image: linear-gradient(to right, orange, purple), linear-gradient(gray, gray); /* Add a gray line and set the initial state of the gradient line */
+    background-size: 0% 2px, 100% 1px; /* Set the initial size of the gradient line to 0% and the gray line to 100% */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    background-position: center bottom, center bottom; /* Position both background images at the center bottom */
+    transition: background-size 0.1s; /* Add a transition to the background size */
+}
+
+.interactive-map-link:hover {
+    background-size: 100% 2px, 0% 1px; /* Increase the size of the gradient line to 100% and set the gray line to 0% on hover */
+}
+
+.header-separator {
+    border: 0; 
+    border-bottom: 1px solid rgb(213, 213, 213); 
+    width: 100%; 
+    margin: 0px auto;
+}
+
+.header-separator-2 {
+    border: 0; 
+    border-bottom: 1px solid rgb(213, 213, 213); 
+    width: 100%; 
+    margin-top: -32px;
+}
+
+.header-separator-3 {
+    border: 0; 
+    border-bottom: 1px solid rgb(213, 213, 213); 
+    width: 100%; 
+    margin-top: -32px;
+}
+
+.header-separator-4 {
+    border: 0; 
+    border-bottom: 1px solid rgb(213, 213, 213); 
+    width: 100%; 
+    margin-top: -42px;
+}
+
+.header-separator-5 {
+    border: 0; 
+    border-bottom: 1px solid rgb(213, 213, 213); 
+    width: 85%; 
+    margin-top: -42px;
+}
+
 
