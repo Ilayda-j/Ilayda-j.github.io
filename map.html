@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive US Map</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #map {
+            height: 400px;
+            width: 50%;
+            margin-left: 360px;
+            margin-top: 60px;
+        }
+        
+    </style>
+</head>
+<body>
+    <p class="map-intro">Here is an interactive map of some of my favourite destinations. You can click on a city on the map to see more!</p>
+<div class="back-button">
+    <a href="about.html">&#8678; Back</a>
+</div>
+    
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+    var map = L.map('map').setView([37.8, -96], 4);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    var citiesVisited = [
+        { name: "New York", coords: [40.7128, -74.0060], link: "new_york_photos.html" },
+        { name: "Los Angeles", coords: [34.0522, -118.2437], link: "los_angeles_photos.html" },
+        { name: "Atlanta", coords: [33.7490, -84.3880], link: "atlanta_photos.html" },
+        { name: "Nashville", coords: [36.1627, -86.7816], link: "nashville_photos.html" },
+        { name: "Seattle", coords: [47.6062, -122.3321], link: "seattle_photos.html" },
+        { name: "San Francisco", coords: [37.7749, -122.4194], link: "san_francisco_photos.html" },
+        { name: "Thessaloniki", coords: [40.6401, 22.9444], link: "thessaloniki_photos.html" },
+        { name: "Istanbul", coords: [41.0082, 28.9784], link: "istanbul_photos.html" },
+        { name: "Plovdiv", coords: [42.1354, 24.7453], link: "plovdiv_photos.html" },
+        { name: "Vienna", coords: [48.2082, 16.3738], link: "vienna_photos.html" },
+        { name: "Brussels", coords: [50.8503, 4.3517], link: "brussels_photos.html" },
+        { name: "Paris", coords: [48.8566, 2.3522], link: "paris_photos.html" },
+        { name: "Amsterdam", coords: [52.3676, 4.9041], link: "amsterdam_photos.html" },
+        { name: "Izmir", coords: [38.4237, 27.1428], link: "izmir_photos.html" },
+        { name: "Ankara", coords: [39.9334, 32.8597], link: "ankara_photos.html" },
+        { name: "Boston", coords: [42.3601, -71.0589], link: "boston_photos.html" },
+        { name: "Panama City Beach", coords: [30.1766, -85.8055], link: "panama_city_beach_photos.html" },
+        { name: "Miami", coords: [25.7617, -80.1918], link: "miami_photos.html" },
+        { name: "Orlando", coords: [28.5383, -81.3792], link: "orlando_photos.html" },
+        { name: "Key West", coords: [24.5551, -81.7800], link: "key_west_photos.html" },
+        { name: "Cozumel", coords: [20.4220, -86.9223], link: "cozumel_photos.html" },
+        { name: "Washington DC", coords: [38.9072, -77.0369], link: "washington_dc_photos.html" },
+        { name: "Las Vegas", coords: [36.1699, -115.1398], link: "las_vegas_photos.html" },
+        { name: "Klagenfurt", coords: [46.6247, 14.3053], link: "klagenfurt_photos.html" },
+        { name: "Köln", coords: [50.9375, 6.9603], link: "koln_photos.html" },
+
+    ];
+
+
+    citiesVisited.forEach(city => {
+        var marker = L.marker(city.coords).addTo(map);
+        marker.bindTooltip(city.name, { permanent: true }).openTooltip();
+        marker.on('click', function() {
+            window.location.href = city.link;
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+header {
+    padding: 20px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.5em; 
+    margin-top: 40px;
+    margin-right: 50px;
+}
+
+nav ul li a:hover {
+    border-bottom: 2px solid #000; /* Added border-bottom on hover for underlining effect */
+}
+
+header nav ul li a:hover {
+    border-bottom: 2px solid #000; /* Added border-bottom on hover for underlining effect */
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.5em; /* Increased font size */
+    margin-top: 90px; /* Added top margin */
+    margin-left: 50px; /* Added right margin */
+}
+
+header h1 {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2em;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+body h1 {
+    font-size: 5em !important; /* Increase the font size */
+    text-align: center !important; /* Center the text */
+    margin-top: 40vh !important; /* Center vertically on the page */
+    transform: translateY(-50%) !important; /* Adjust the positioning */
+}
+
+h2 {
+    font-size: 2em !important; /* Increase the font size */
+    margin-top: 40vh !important; /* Center vertically on the page */
+    transform: translateY(-50%) !important; /* Adjust the positioning */
+    margin-left: 420px;
+}
+
+.social-icons {
+    position: fixed;
+    bottom: 70px;
+    right: 120px;
+    display: flex;
+    gap: 30px;
+}
+
+.social-icons a {
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+
+.social-icons img {
+    width: 100%;
+    height: 100%;
+}
+
+.about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.headshot {
+    width: 400px;
+    height: 400px;
+    margin-left: 40px;
+    margin-top: -290px;
+}
+
+.bio h2 {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 10px;
+    margin-left: 2px;
+}
+
+.bio {
+    max-width: 600px;
+    margin-left: 440px;
+    margin-top: -860px;
+    font-size: 1.2em;
+}
+
+.info {
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.playlists-section {
+    margin-top: 170px;
+    padding: 10px;
+}
+
+.playlists-section h2 {
+    font-size: 1.5em;
+    margin-left: 105px;
+    margin-top: -110px;
+}
+
+.playlists-container {
+    display: flex;
+    gap: 10px; /* Adds space between the playlists */
+    justify-content: center; /* Centers the playlists horizontally */
+    flex-wrap: wrap; /* Allows the playlists to wrap to the next line if there isn't enough space */
+}
+
+.playlists-container iframe {
+    margin: 10px; /* Adds margin around each playlist */
+}
+
+.language-switcher {
+    position: fixed;
+    top: 15px;
+    right: 30px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.language-switcher a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: #000;
+}
+
+.language-switcher img {
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 20px; /* Adjust the width as necessary */
+}
+
+/* Style the form container */
+#contact-form {
+    max-width: 600px;
+    margin-top: 80px;
+    margin-left: 380px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Style the form labels */
+#contact-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* Style the form inputs and textarea */
+#contact-form input, #contact-form textarea {
+    width: 96%;
+    padding: 10px;
+    margin-bottom: 20px; /* Add space between elements */
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Style the textarea */
+#contact-form textarea {
+    height: 100px; /* Set a fixed height */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+/* Style the submit button */
+#contact-form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the submit button on hover */
+#contact-form button:hover {
+    background-color: #218838;
+}
+
+#map { height: 180px; }
+
+.map-intro {
+    margin-top: 120px;
+    margin-left: 330px;
+    font-size: 1em;
+}
+
+.back-button {
+    position: fixed;
+    top: 30px;
+    left: 60px;
+    padding: 0px; /* Padding inside the button */
+}
+
+.back-button:hover {
+    border-bottom: 1px solid #000; /* Added border-bottom on hover for underlining effect */
+}
+
+
+.back-button a {
+    text-decoration: none; /* Remove underline from link */
+    color: #000; /* Color of the text and arrow */
+    font-weight: bold; /* Make text bold */
+    font-size: 16px; /* Set font size */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 2s forwards;
+    animation-delay: 2s; /* adjust the delay as per your preference */
+}
+

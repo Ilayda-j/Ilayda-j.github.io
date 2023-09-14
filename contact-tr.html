@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<title>My Personal Website</title>
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li class="language-switcher">
+                <a href="contact.html"><img src="images/american.png" alt="English Flag"> English</a> | 
+                <a href="contact-tr.html"><img src="images/turkish.png" alt="Turkish Flag"> Türkçe</a>
+            </li>
+            <li><a href="about.html">Hakkımda</a></li>
+            <li><a href="experience.html">Tecrübe</a></li>
+            <li><a href="projects.html">Projelerim</a></li>
+            <li><a href="contact.html">İletişim</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <form id="contact-form" method="POST" action="contact.php">
+        <label for="name">Adın, Soyadın:</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Eposta adresin:</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="message">Mesajın:</label>
+        <textarea id="message" name="message" required></textarea>
+        
+        <button type="submit">Eposta Gönder</button>
+    </form>
+</main>
+<footer>
+    <p>Copyright © 2023 Ilayda Koca</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
+
