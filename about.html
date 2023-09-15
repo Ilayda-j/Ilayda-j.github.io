@@ -37,7 +37,6 @@
         left: 0;
         width: 40%;
         height: 40%;
-        background-color: rgba(0, 0, 0, 0.5);
         margin-left: 430px;
         margin-top: 200px;
         justify-content: center;
@@ -55,6 +54,30 @@
         top: 10px;
         right: 10px;
         cursor: pointer;
+    }
+    .arrow {
+        font-size: 4em;  /* Adjust the size of the arrow */
+        font-weight: 1000;  /* Make the arrow thicker */
+        position: absolute;
+        top: 50%;
+        font-size: 1.3em;
+        border: none; /* Remove the border */
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        color:white; /* Adjust the color as necessary 
+        text-shadow: 2.5px 2.5px 2px black, 2.5px 2.5px 2px rgb(65, 65, 65), 2.5px 2.5px 2px rgb(119, 119, 119), 2.5px 2.5px 2px rgb(196, 195, 195);
+*/    }
+
+    .left-arrow {
+        left: 15px;
+    }
+
+    .right-arrow {
+        right: 15px;
     }
 </style>
 <title>About Me - Ilayda Koca</title>
@@ -133,10 +156,12 @@
     <hr class="header-separator-51">
     <p class="map-intro">Here is an interactive map of some of my favourite destinations. You can exlore the places I've been in the US at the left and place's I've been in Europe at the right. <br>You can click on a city on the map to see more!</p>
     <div id="map"></div>
-    <div id="image-popup" class="popup">
+    <div class="popup" id="image-popup">
         <span class="close-btn" onclick="closePopup()">X</span>
-        <img id="popup-image" src="" alt="Popup Image">
-     </div>
+        <button class="arrow left-arrow" onclick="previousImage()">◀</button>
+        <img alt="Popup Image" id="popup-image" src=""/>
+        <button class="arrow right-arrow" onclick="nextImage()">▶</button>
+    </div> 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         var map = L.map('map').setView([37.8, -96], 3.7);
@@ -146,7 +171,7 @@
         }).addTo(map);
 
         var citiesVisited = [
-            { name: "New York", coords: [40.7128, -74.0060], image: 'images-city/nyc.png' },
+            { name: "New York", coords: [40.7128, -74.0060], image: ['images-city/nyc.png', 'images-city/nyc-2.png']},
             { name: "Los Angeles", coords: [34.0522, -118.2437], image: 'images-city/la.png'},
             { name: "Atlanta", coords: [33.7490, -84.3880], link: "atlanta_photos.html" },
             { name: "Nashville", coords: [36.1627, -86.7816], link: "nashville_photos.html" },
@@ -174,10 +199,34 @@
 
         ];
         
-        function openPopup(imageSrc) {
-            console.log('Image Source:', imageSrc);
+        var currentImageIndex = 0;
+        var currentCityImages = [];
+
+        function openPopup() {
+            currentImageIndex = 0; // Reset to the first image when the popup is opened
             document.getElementById('image-popup').style.display = 'flex';
-            document.getElementById('popup-image').src = imageSrc;
+            document.getElementById('popup-image').src = cityImages[currentImageIndex];
+        }
+
+        function closePopup() {
+            document.getElementById('image-popup').style.display = 'none';
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % cityImages.length;
+            document.getElementById('popup-image').src = cityImages[currentImageIndex];
+        }
+
+        function previousImage() {
+            currentImageIndex = (currentImageIndex - 1 + cityImages.length) % cityImages.length;
+            document.getElementById('popup-image').src = cityImages[currentImageIndex];
+        }
+
+        function openPopup(cityIndex) {
+            currentImageIndex = 0;
+            currentCityImages = citiesVisited[cityIndex].image;
+            document.getElementById('image-popup').style.display = 'flex';
+            document.getElementById('popup-image').src = currentCityImages[currentImageIndex];
         }
 
         function closePopup() {
@@ -190,13 +239,15 @@
                 let city = citiesVisited[i];
                 var marker = L.marker(city.coords).addTo(map);
                 marker.bindTooltip(city.name, { permanent: true }).openTooltip();
-                console.log('City Object:', city);
                     
                 // Add a click event listener to the marker to open the pop-up with the respective image
                 marker.on('click', function() {
-                    console.log('city', city);
-                    console.log('city.image', city.image);
-                    openPopup(city.image);
+                    console.log('city index', i);
+                    console.log('City Object:', citiesVisited[i]);
+                    console.log('City Object:', citiesVisited[i].image);
+                    console.log('City Object:', citiesVisited[i].image[0]);
+                    console.log('City Object:', citiesVisited[i].image[1]);
+                    openPopup(i);  // Pass the index of the city to the openPopup function
                 });
             };
         }
@@ -220,7 +271,7 @@
             }).addTo(map2);
             
         var citiesVisited = [
-            { name: "New York", coords: [40.7128, -74.0060], image: 'images-city/nyc.png'},
+            { name: "New York", coords: [40.7128, -74.0060], image: ['images-city/nyc.png', 'images-city/nyc-2.png']},
             { name: "Los Angeles", coords: [34.0522, -118.2437], link: "los_angeles_photos.html" },
             { name: "Atlanta", coords: [33.7490, -84.3880], link: "atlanta_photos.html" },
             { name: "Nashville", coords: [36.1627, -86.7816], link: "nashville_photos.html" },
