@@ -79,6 +79,18 @@
     .right-arrow {
         right: 15px;
     }
+    .arrow:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Increase the opacity of the background */
+    }
+
+    .left-arrow:hover {
+        font-size:1.4em;
+    }
+
+    .left-arrow:hover {
+        font-size:1.4em;
+    }
+
 </style>
 <title>About Me - Ilayda Koca</title>
 </head>
@@ -171,21 +183,12 @@
         }).addTo(map);
 
         var citiesVisited = [
-            { name: "New York", coords: [40.7128, -74.0060], image: ['images-city/nyc.png', 'images-city/nyc-2.png']},
-            { name: "Los Angeles", coords: [34.0522, -118.2437], image: 'images-city/la.png'},
+            { name: "New York", coords: [40.7128, -74.0060], image: ['images-city/nyc.png','images-city/nyc-3.png','images-city/nyc-4.png','images-city/nyc-6.png','images-city/nyc-7.png']},
+            { name: "Los Angeles", coords: [34.0522, -118.2437], image: ['images-city/la-2.png','images-city/la-3.png','images-city/la-4.png','images-city/la-5.png','images-city/la-6.png','images-city/la-7.png','images-city/la-8.png','images-city/la-9.png','images-city/la-10.png','images-city/la-11.png','images-city/la-11.png']},
             { name: "Atlanta", coords: [33.7490, -84.3880], link: "atlanta_photos.html" },
             { name: "Nashville", coords: [36.1627, -86.7816], link: "nashville_photos.html" },
-            { name: "Seattle", coords: [47.6062, -122.3321], link: "seattle_photos.html" },
-            { name: "San Francisco", coords: [37.7749, -122.4194], link: "san_francisco_photos.html" },
-            { name: "Thessaloniki", coords: [40.6401, 22.9444], link: "thessaloniki_photos.html" },
-            { name: "Istanbul", coords: [41.0082, 28.9784], link: "istanbul_photos.html" },
-            { name: "Plovdiv", coords: [42.1354, 24.7453], link: "plovdiv_photos.html" },
-            { name: "Vienna", coords: [48.2082, 16.3738], link: "vienna_photos.html" },
-            { name: "Brussels", coords: [50.8503, 4.3517], link: "brussels_photos.html" },
-            { name: "Paris", coords: [48.8566, 2.3522], link: "paris_photos.html" },
-            { name: "Amsterdam", coords: [52.3676, 4.9041], link: "amsterdam_photos.html" },
-            { name: "Izmir", coords: [38.4237, 27.1428], link: "izmir_photos.html" },
-            { name: "Ankara", coords: [39.9334, 32.8597], link: "ankara_photos.html" },
+            { name: "Seattle", coords: [47.6062, -122.3321], image: ['images-city/sf.png','images-city/sf-2.png','images-city/sf-3.png','images-city/sf-4.png','images-city/sf-5.JPG','images-city/sf-6.JPG'] },
+            { name: "San Francisco", coords: [37.7749, -122.4194], image: ['images-city/sf.png','images-city/sf-2.png','images-city/sf-3.png','images-city/sf-4.png','images-city/sf-5.JPG','images-city/sf-6.JPG'] },
             { name: "Boston", coords: [42.3601, -71.0589], link: "boston_photos.html" },
             { name: "Panama City Beach", coords: [30.1766, -85.8055], link: "panama_city_beach_photos.html" },
             { name: "Miami", coords: [25.7617, -80.1918], link: "miami_photos.html" },
@@ -193,16 +196,14 @@
             { name: "Key West", coords: [24.5551, -81.7800], link: "key_west_photos.html" },
             { name: "Cozumel", coords: [20.4220, -86.9223], link: "cozumel_photos.html" },
             { name: "Washington DC", coords: [38.9072, -77.0369], link: "washington_dc_photos.html" },
-            { name: "Las Vegas", coords: [36.1699, -115.1398], link: "las_vegas_photos.html" },
-            { name: "Klagenfurt", coords: [46.6247, 14.3053], link: "klagenfurt_photos.html" },
-            { name: "Köln", coords: [50.9375, 6.9603], link: "koln_photos.html" },
-
+            { name: "Las Vegas", coords: [36.1699, -115.1398], image: ['images-city/vegas-1.png','images-city/vegas-2.png'] },
         ];
         
         const cityImages = {
-            "New York": ['images-city/nyc.png', 'images-city/nyc-2.png', /* ...more paths */],
-            "Los Angeles": ['path/to/losangeles/image1.png', 'path/to/losangeles/image2.png', /* ...more paths */],
-            // ... more cities
+            "New York": ['images-city/nyc.png', 'images-city/nyc-3.png','images-city/nyc-4.png','images-city/nyc-6.png','images-city/nyc-7.png'],
+            "Los Angeles": ['images-city/la-2.png','images-city/la-3.png','images-city/la-4.png','images-city/la-5.png','images-city/la-6.png','images-city/la-7.png','images-city/la-8.png','images-city/la-9.png','images-city/la-10.png','images-city/la-11.png','images-city/la-11.png'],
+            "San Francisco": ['images-city/sf.png','images-city/sf-2.png','images-city/sf-3.png','images-city/sf-4.png','images-city/sf-5.JPG','images-city/sf-6.JPG'],
+            "Las Vegas": ['images-city/vegas-1.png','images-city/vegas-2.png'],// ... more cities
         };
 
         let currentCity = "New York"; // Default city
@@ -281,12 +282,20 @@
             }).addTo(map2);
             
         var citiesVisited = [
-            { name: "New York", coords: [40.7128, -74.0060], image: ['images-city/nyc.png', 'images-city/nyc-2.png']},
-            { name: "Los Angeles", coords: [34.0522, -118.2437], link: "los_angeles_photos.html" },
+            { name: "New York", coords: [40.7128, -74.0060], image: ['images-city/nyc.png','images-city/nyc-3.png','images-city/nyc-4.png','images-city/nyc-6.png','images-city/nyc-7.png']},
+            { name: "Los Angeles", coords: [34.0522, -118.2437], image: ['images-city/la-2.png','images-city/la-3.png','images-city/la-4.png','images-city/la-5.png','images-city/la-6.png','images-city/la-7.png','images-city/la-8.png','images-city/la-9.png','images-city/la-10.png','images-city/la-11.png','images-city/la-11.png']},
             { name: "Atlanta", coords: [33.7490, -84.3880], link: "atlanta_photos.html" },
             { name: "Nashville", coords: [36.1627, -86.7816], link: "nashville_photos.html" },
-            { name: "Seattle", coords: [47.6062, -122.3321], link: "seattle_photos.html" },
-            { name: "San Francisco", coords: [37.7749, -122.4194], link: "san_francisco_photos.html" },
+            { name: "Seattle", coords: [47.6062, -122.3321], image: ['images-city/sf.png','images-city/sf-2.png','images-city/sf-3.png','images-city/sf-4.png','images-city/sf-5.JPG','images-city/sf-6.JPG'] },
+            { name: "San Francisco", coords: [37.7749, -122.4194], image: ['images-city/sf.png','images-city/sf-2.png','images-city/sf-3.png','images-city/sf-4.png','images-city/sf-5.JPG','images-city/sf-6.JPG'] },
+            { name: "Boston", coords: [42.3601, -71.0589], link: "boston_photos.html" },
+            { name: "Panama City Beach", coords: [30.1766, -85.8055], link: "panama_city_beach_photos.html" },
+            { name: "Miami", coords: [25.7617, -80.1918], link: "miami_photos.html" },
+            { name: "Orlando", coords: [28.5383, -81.3792], link: "orlando_photos.html" },
+            { name: "Key West", coords: [24.5551, -81.7800], link: "key_west_photos.html" },
+            { name: "Cozumel", coords: [20.4220, -86.9223], link: "cozumel_photos.html" },
+            { name: "Washington DC", coords: [38.9072, -77.0369], link: "washington_dc_photos.html" },
+            { name: "Las Vegas", coords: [36.1699, -115.1398], image: ['images-city/vegas-1.png','images-city/vegas-2.png'] },
             { name: "Thessaloniki", coords: [40.6401, 22.9444], link: "thessaloniki_photos.html" },
             { name: "Istanbul", coords: [41.0082, 28.9784], link: "istanbul_photos.html" },
             { name: "Plovdiv", coords: [42.1354, 24.7453], link: "plovdiv_photos.html" },
@@ -296,14 +305,6 @@
             { name: "Amsterdam", coords: [52.3676, 4.9041], link: "amsterdam_photos.html" },
             { name: "Izmir", coords: [38.4237, 27.1428], link: "izmir_photos.html" },
             { name: "Ankara", coords: [39.9334, 32.8597], link: "ankara_photos.html" },
-            { name: "Boston", coords: [42.3601, -71.0589], link: "boston_photos.html" },
-            { name: "Panama City Beach", coords: [30.1766, -85.8055], link: "panama_city_beach_photos.html" },
-            { name: "Miami", coords: [25.7617, -80.1918], link: "miami_photos.html" },
-            { name: "Orlando", coords: [28.5383, -81.3792], link: "orlando_photos.html" },
-            { name: "Key West", coords: [24.5551, -81.7800], link: "key_west_photos.html" },
-            { name: "Cozumel", coords: [20.4220, -86.9223], link: "cozumel_photos.html" },
-            { name: "Washington DC", coords: [38.9072, -77.0369], link: "washington_dc_photos.html" },
-            { name: "Las Vegas", coords: [36.1699, -115.1398], link: "las_vegas_photos.html" },
             { name: "Klagenfurt", coords: [46.6247, 14.3053], link: "klagenfurt_photos.html" },
             { name: "Köln", coords: [50.9375, 6.9603], link: "koln_photos.html" },
 
