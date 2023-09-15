@@ -26,7 +26,7 @@
     }
     .popup {
         width: 30px;   /* Set the width of the popup */
-        height: 20px;  /* Set the height of the popup */
+        height: 30px;  /* Set the height of the popup */
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for a nice effect */
         border-radius: 10px; /* Optional: Round the corners */
         overflow: hidden;
@@ -36,9 +36,9 @@
         top: 0;
         left: 0;
         width: 40%;
-        height: 40%;
+        height: 70%;
         margin-left: 430px;
-        margin-top: 200px;
+        margin-top: 100px;
         justify-content: center;
 
     }
@@ -199,31 +199,41 @@
 
         ];
         
-        var currentImageIndex = 0;
-        var currentCityImages = [];
+        const cityImages = {
+            "New York": ['images-city/nyc.png', 'images-city/nyc-2.png', /* ...more paths */],
+            "Los Angeles": ['path/to/losangeles/image1.png', 'path/to/losangeles/image2.png', /* ...more paths */],
+            // ... more cities
+        };
 
-        function openPopup() {
-            currentImageIndex = 0; // Reset to the first image when the popup is opened
-            document.getElementById('image-popup').style.display = 'flex';
-            document.getElementById('popup-image').src = cityImages[currentImageIndex];
-        }
+        let currentCity = "New York"; // Default city
+        let currentImageIndex = 0;
 
-        function closePopup() {
-            document.getElementById('image-popup').style.display = 'none';
+        function previousImage() {
+            if (currentImageIndex > 0) {
+                currentImageIndex--;
+            } else {
+                currentImageIndex = cityImages[currentCity].length - 1; // Loop back to the last image
+            }
+            document.getElementById('popup-image').src = cityImages[currentCity][currentImageIndex];
         }
 
         function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % cityImages.length;
-            document.getElementById('popup-image').src = cityImages[currentImageIndex];
+            if (currentImageIndex < cityImages[currentCity].length - 1) {
+                currentImageIndex++;
+            } else {
+                currentImageIndex = 0; // Loop back to the first image
+            }
+            document.getElementById('popup-image').src = cityImages[currentCity][currentImageIndex];
         }
 
-        function previousImage() {
-            currentImageIndex = (currentImageIndex - 1 + cityImages.length) % cityImages.length;
-            document.getElementById('popup-image').src = cityImages[currentImageIndex];
-        }
 
         function openPopup(cityIndex) {
+            console.log('City Object:', citiesVisited[cityIndex]);
+            console.log('City Object:', citiesVisited[cityIndex].image);
+            console.log('City Object:', citiesVisited[cityIndex].image[0]);
+            console.log('City Object:', citiesVisited[cityIndex].image[1]);
             currentImageIndex = 0;
+            currentCity = citiesVisited[cityIndex].name;
             currentCityImages = citiesVisited[cityIndex].image;
             document.getElementById('image-popup').style.display = 'flex';
             document.getElementById('popup-image').src = currentCityImages[currentImageIndex];
