@@ -139,6 +139,13 @@ h2 {
     color: rgb(58, 57, 57);
 }
 
+.movies-section h6 {
+    margin-left: 107px;
+    font-weight: bold;
+    font-size: 2em;
+    color: rgb(58, 57, 57);
+}
+
 .bio {
     max-width: 600px;
     margin-left: 440px;
@@ -347,7 +354,19 @@ h2 {
     border: 0; 
     border-bottom: 1px solid rgb(213, 213, 213); 
     width: 85%; 
-    margin-top: -42px;
+    margin-top: -47px;
 }
 
+.header-separator-51 {
+    border: 0; 
+    border-bottom: 1px solid rgb(213, 213, 213); 
+    width: 85%; 
+    margin-top: -51px;
+}
 
+.header-separator-6 {
+    border: 0; 
+    border-bottom: 1px solid rgb(213, 213, 213); 
+    width: 85%; 
+    margin-top: -72px;
+}
