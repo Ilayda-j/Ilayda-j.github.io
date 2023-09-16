@@ -8,14 +8,39 @@
 <link rel="icon" href="images/favicon-32x32.png" type="image/x-icon">
 <link rel="stylesheet" href="style.css">
 <style>
-
+/*
     #map {
         height: 380px;
         width: 95%;
         margin-left: 35px;
+        margin-right: 35px;
         margin-bottom: 160px;
         margin-top: 60px;
         border-radius: 15px;
+    } */
+    #map {
+        height: 380px;
+        width: 95%; /* It will take 95% of the container's width */
+        margin: 0 auto; /* Centers the map within the container */
+        margin-bottom: 160px;
+        margin-top: 60px;
+        border-radius: 15px;
+    }
+
+    @media (max-width: 768px) {
+        #map {
+            width: 90%; /* You can adjust the percentage as per your preference */
+            margin-left: 5%; /* Adjust the margin to center the map */
+            margin-right: 5%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        #map {
+            width: 85%; /* Adjusts the map width for smaller screens */
+            margin-left: 7.5%; /* Adjust the margin to center the map */
+            margin-right: 7.5%;
+        }
     }
 
     .popup {
@@ -167,7 +192,19 @@
         </div> 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        var map = L.map('map').setView([37.8, -46], 2.6);
+        var map;
+
+        var width = window.innerWidth;
+        if (width <= 480) {
+            map = L.map('map').setView([37.8, -96], 2.6); // For very small screens
+        } else if (width <= 768) {
+            map = L.map('map').setView([37.8, -96], 2.6); // For medium screens
+        } else {
+            map = L.map('map').setView([37.8, -46], 2.6); // For large screens
+        }
+
+        //... (rest of your script)
+
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -239,10 +276,6 @@
 
 
         function openPopup(cityIndex) {
-            console.log('City Object:', citiesVisited[cityIndex]);
-            console.log('City Object:', citiesVisited[cityIndex].image);
-            console.log('City Object:', citiesVisited[cityIndex].image[0]);
-            console.log('City Object:', citiesVisited[cityIndex].image[1]);
             currentImageIndex = 0;
             currentCity = citiesVisited[cityIndex].name;
             currentCityImages = citiesVisited[cityIndex].image;
