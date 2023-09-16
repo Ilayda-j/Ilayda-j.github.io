@@ -44,8 +44,6 @@
     }
 
     .popup {
-        width: 30px;   /* Set the width of the popup */
-        height: 30px;  /* Set the height of the popup */
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for a nice effect */
         border-radius: 10px; /* Optional: Round the corners */
         overflow: hidden;
@@ -56,8 +54,9 @@
         left: 0;
         width: 40%;
         height: 70%;
-        margin-left: 430px;
-        margin-top: 100px;
+        top: 50%; /* Center the popup vertically */
+        left: 50%; /* Center the popup horizontally */
+        transform: translate(-50%, -50%); /* Adjust the position to truly center the popup */
         justify-content: center;
 
     }
@@ -202,9 +201,6 @@
         } else {
             map = L.map('map').setView([37.8, -46], 2.6); // For large screens
         }
-
-        //... (rest of your script)
-
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
