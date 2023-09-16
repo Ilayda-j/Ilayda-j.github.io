@@ -48,12 +48,6 @@ header nav ul li a {
     margin-left: 50px; /* Added right margin */
 }
 
-header h1 {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 2em;
-}
-
 main {
     padding: 20px;
 }
@@ -75,9 +69,7 @@ body h1 {
 
 h2 {
     font-size: 2em !important; /* Increase the font size */
-    margin-top: 40vh !important; /* Center vertically on the page */
     transform: translateY(-50%) !important; /* Adjust the positioning */
-    margin-left: 420px;
 }
 
 .social-icons {
@@ -97,19 +89,6 @@ h2 {
 .social-icons img {
     width: 100%;
     height: 100%;
-}
-
-.about-section {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.headshot {
-    width: 300px;
-    height: 300px;
-    margin-left: 100px;
-    margin-top: -190px;
 }
 
 .bio h2 {
@@ -146,16 +125,35 @@ h2 {
     color: rgb(58, 57, 57);
 }
 
-.bio {
-    max-width: 600px;
-    margin-left: 440px;
-    margin-top: -820px;
-    font-size: 1em;
+.about-section {
+    flex: 1 1 25%;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
-.info {
-    margin-top: 10px;
-    margin-left: 100px;
+.bio {
+    flex: 1 1 65%;
+    min-width: 0px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+.headshot {
+    width: 395px; /* Setting a specific width */
+    height: 395px; /* Setting a specific height */
+}
+
+.content-container {
+    margin-top: 200px;
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
 }
 
 .label {
@@ -169,7 +167,7 @@ h2 {
 }
 
 .playlists-section {
-    margin-top: -200px;
+    margin-top: 100px;
     padding: 10px;
 }
 
