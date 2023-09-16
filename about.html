@@ -8,16 +8,6 @@
 <link rel="icon" href="images/favicon-32x32.png" type="image/x-icon">
 <link rel="stylesheet" href="style.css">
 <style>
-/*
-    #map {
-        height: 380px;
-        width: 95%;
-        margin-left: 35px;
-        margin-right: 35px;
-        margin-bottom: 160px;
-        margin-top: 60px;
-        border-radius: 15px;
-    } */
     #map {
         height: 380px;
         width: 95%; /* It will take 95% of the container's width */
@@ -61,6 +51,26 @@
 
     }
 
+    @media (max-width:390px) {
+        .popup {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for a nice effect */
+            border-radius: 10px; /* Optional: Round the corners */
+            overflow: hidden;
+            z-index: 2000;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 60%;
+            top: 50%; /* Center the popup vertically */
+            left: 50%; /* Center the popup horizontally */
+            transform: translate(-50%, -50%); /* Adjust the position to truly center the popup */
+            justify-content: center;
+
+        }
+    }
+    
     #popup-image {
         width: 100%;  /* Make the image fill the width of the popup */
         height: 100%; /* Make the image fill the height of the popup */
