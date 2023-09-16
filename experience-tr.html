@@ -1,25 +1,144 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+<link rel="icon" href="images/favicon-32x32.png" type="image/x-icon">
 <link rel="stylesheet" href="style.css">
-<title>My Personal Website</title>
+</style>
+<title>Tecrübe - Ilayda Koca</title>
 </head>
 <body>
 <header>
     <nav>
         <ul>
             <li class="language-switcher">
-                <a href="index.html"><img src="images/american.png" alt="English Flag"> English</a> | 
-                <a href="index_tr.html"><img src="images/turkish.png" alt="Turkish Flag"> Türkçe</a>
+                <a href="experience.html"><img src="images/american.png" alt="English Flag"></a> | 
+                <a href="experience-tr.html"><img src="images/turkish.png" alt="Turkish Flag"></a>
             </li>
-            <li><a href="index-tr.html">ana sayfa</a></li>
+            <li><a href="index_tr.html">ana sayfa</a></li>
             <li><a href="about-tr.html" class="active">hakkımda</a></li>
             <li><a href="experience-tr.html">tecrübe</a></li>
             <li><a href="contact-tr.html">iletişim</a></li>
         </ul>
     </nav>
-    <h1>Merhaba, ben Ilayda Koca</h1>
 </header>
+<main>
+    <div class="content-container">
+        <div class="header-experience">
+            <h2>tecrübe</h2>
+            <hr class="header-separator-7">
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="bio">
+            <p class="job">Sınıf Öğrenme ve Değerlendirme Süiti (CLAS) Projesi</p>
+            <p class="clas">
+                <a href="https://github.com/vanderbilt-data-science/lo-achievement" class="interactive-map-link">Github</a> | 
+                <a href="https://www.vanderbilt.edu/datascience/2023/07/28/classroom-learning-and-assessment-suite-clas/" class="interactive-map-link">Website</a></p>
+            <p class="title">Yazılım Mühendisi | Eylül 2023 - Günümüz</p>
+            <ul class="description">
+                <li>Sınıf içi öğrenme ve değerlendirmeleri otomatikleştirmeyi ve hızlandırmayı amaçlayan bir AI destekli platform oluşturuldu.</li>
+                <li>HuggingFace'in doğal dil işleme kütüphaneleri ile OpenAI'nin GPT-3 ve GPT-4'ünü kullanarak etkileşimli öğrenme değerlendirmeleri geliştiren ve notlandırmayı otomatikleştiren bir AI öğrenimasistanı entegre edildi.</li>
+                <li>Notlandırma sistemi ve öğrenme yönetim sistemi gibi sistemin çeşitli bileşenlerini Web uygulamasına entegre etmek için API'ler uygulandı.</li>
+            </ul>
+        </div>
+        <div class="about-section">
+            <img src="images/CLAS.png" alt="Ilayda Koca" class="headshot">
+        </div>
+        <div class="bio">
+            <p class="job">Open Ended Learning Environments Lab</p>
+            <p class="title">Makine Öğrenmesi Araştırmacısı | Mayıs 2023 - Günümüz</p>
+            <ul class="description">
+                <li>Öğrencilerin ortak çalışanlarla etkileşimde bulunurken öğrenme davranışlarını analiz eden çevrimiçi öğretilebilir bir aracı oluşturmak amacıyla f-1 puanı 0,82 olan eylem tanıma için görsel bir soru yanıtlama (VQA) modeli geliştirildi.</li>
+                <li>Hico Det kıyaslama veri kümesindeki 39152 tren görüntüsünde VQA modellerinin performansı optimize edildi.</li>
+                <li>Videolardaki toplam 80 olası nesneyi tanımlamak için YOLO gibi nesne algılama modelleri kullanıldı.</li>
+                <li>VQA görevlerine yönelik metin sorularını işlemek için NLTK gibi doğal dil işleme kütüphaneleri entegre edildi.</li>
+                <li>VQA görevlerini gerçekleştirmek için Hugging Face'in Vilt kütüphanesindeki önceden eğitilmiş modellerden yararlanıldı.</li>
+            </ul>
+        </div>
+        <div class="about-section">
+            <img src="images/poster.png" alt="Ilayda Koca" class="poster">
+        </div>
+        <div class="bio">
+            <p class="job">Law Transformers Project</p>
+            <p class="title">Makine Öğrenmesi Mühendisi | January 2023 - May 2023</p>
+            <ul class="description">
+                <li>Haystack'ı kullanarak hukuki metin analizi için f-1 puanı 0,79 olan bir soru yanıtlama hattı geliştirildi.</li>
+                <li>180510 yasal vaka belgelerinde arama alanını daraltmak için TF-IDF ve Yoğun Geçiş Erişimi de dahil olmak üzere yoğun ve seyrek vektör alma yöntemlerini kullanan bir alıcı bileşeni uygulandı.</li>
+                <li>Doğru ve bağlama duyarlı yanıt çıkarımı için okuyucu bileşenini oluşturmak amacıyla BERT, RoBERTa ve ALBERT gibi transformatör tabanlı modeller kullanıldı.</li>
+                <li>Tekrarlanabilirlik için net açıklamalar ve talimatlar sağlayarak uygulama sürecini, deneyleri ve sonuçları Jupyter Not Defterlerinde belgeledi.</li>
+            </ul>
+        </div>
+        <div class="about-section">
+            <img src="images/haystack.png" alt="Ilayda Koca" class="headshot">
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="header-skills">
+            <h2>technik beceriler</h2>
+            <hr class="header-separator-8">
+        </div>
+    </div>
+    <div class="bio">
+        <ul class="description">
+            <li><p class="bold">Programlama:</p> Python, C/C++, Java, JavaScript, HTML, CSS, Git/Github</li>
+            <li><p class="bold">Makine Öğrenmesi:</p> PyTorch, TensorFlow, Scikit-learn, NLTK, Transformers, HuggingFace, Haystack, OpenCV</li>
+            <li><p class="bold">Sayısal analiz:</p> NumPy, , Pandas, Seaborn, Matplotlib</li>
+        </ul>
+    </div>
+    <div class="content-container">
+        <div class="header-skills">
+            <h2>ilgili dersler</h2>
+            <hr class="header-separator-8">
+        </div>
+    </div>
+    <div class="content-container-2">
+        <div class="bio-2">
+            <ul class="description">
+                <li>Veri Yapıları ve Program Tasarımı</li>
+                <li>Ayrık Matematik</li>
+                <li>Algoritmaler</li>
+            </ul>
+        </div>
+        <div class="about-section-2">
+            <ul class="description">
+                <li>Uygulamalı Makine Öğrenmesi</li>
+                <li>Ara Yazılım Tasarımı</li>
+                <li>İşletim Sistemleri</li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="header-skills">
+            <h2>liderlik tecrübesi</h2>
+            <hr class="header-separator-8">
+        </div>
+    </div>
+    <div class="bio">
+        <p class="job">Sybbure Searle Lisans Araştırma Programı</p>
+        <p class="title">Araştırma Görevlisi | Mayıs 2023 - Günümüz</p>
+        <ul class="description">
+            <li>Araştırma bulgularını program içi toplantılarda, haftalık alt grup toplantılarında, seminerlerde ve çalıştaylarda sundu.</li>
+            <li>Bilgi akışını geliştirmek, fikir alışverişinde bulunmak ve işbirliğini arttırmak için akran araştırması sunumlarını değerlendirdi ve geri bildirim sağladı.</li>
+        </ul>
+    </div>
+    <div class="bio">
+        <p class="job">Öğrenim Asistanı</p>
+        <p class="title">Üşletim Sistemleri | Eylül 2023 - Günümüz</p>
+        <ul class="description">
+            <li>Haftalık programlama ödevlerine ve ara sınavlara not verildi ve geri bildirimde bulunuldu.</li>
+            <li>Süreç yönetimi, bellek yönetimi ve senkronizasyon gibi kavramların öğrenimini güçlendirmek için Piazza platformu aracılığıyla 2 saatlik ofis saatleri düzenlendi ve öğrenci soruları yanıtlandı.</li>
+        </ul>
+        <p class="title">Prograglama ve Problem Çözme | Ağustos 2022 - Eylül 2023</p>
+        <ul class="description">
+            <li>Haftalık programlama ödevleri ve ara sınavlar notlandırıldı ve geri bildirimde bulunuldu.</li>
+            <li>Nesneye yönelik programlama ve hata ayıklama gibi sınıfta öğrenilen kavramları güçlendirmek için açıklamalar yapıldı.</li>
+            <li>Akademik dürüstlüğü korumak için sınavlarda ve finallerde gözetmenlik yapıldı.</li>
+        </ul>
+    </div>   
+</main>
+    <p class="footer">Copyright © 2023 Ilayda Koca</p>
+</body>
+</html>
