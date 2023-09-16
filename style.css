@@ -33,10 +33,13 @@ header nav ul {
     display: flex;
     justify-content: flex-start;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 header nav ul li {
     display: inline;
+    margin-right: -60px; /* Initial margin between the items */
+    transition: margin-right 0.3s; /* add transition for smooth change */
 }
 
 header nav ul li a {
@@ -46,6 +49,25 @@ header nav ul li a {
     font-size: 1.5em; /* Increased font size */
     margin-top: 90px; /* Added top margin */
     margin-left: 50px; /* Added right margin */
+}
+
+/* Media queries to adjust the margin at different screen widths */
+@media (max-width: 1200px) {
+    header nav ul li a {
+        margin-right: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    header nav ul li a {
+        margin-right: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    header nav ul li a {
+        margin-right: 20px;
+    }
 }
 
 main {
@@ -122,8 +144,8 @@ h2 {
     color: rgb(58, 57, 57);
 }
 
-.movies-section h6 {
-    margin-left: 107px;
+.testimonials-section h6 {
+    margin-left: 35px;
     font-weight: bold;
     font-size: 2em;
     color: rgb(58, 57, 57);
@@ -154,7 +176,7 @@ h2 {
     flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 368px) {
     .content-container {
         flex-direction: column;
     }
@@ -378,6 +400,7 @@ h2 {
 .header-separator-6 {
     border: 0; 
     border-bottom: 1px solid rgb(213, 213, 213); 
-    width: 85%; 
+    width: 100%; 
+    margin-left:35px;
     margin-top: -72px;
 }
