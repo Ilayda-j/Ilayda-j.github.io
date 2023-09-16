@@ -4,7 +4,121 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<link rel="icon" href="images/favicon-32x32.png" type="image/x-icon">
 <link rel="stylesheet" href="style.css">
+<style>
+    #map {
+        height: 380px;
+        width: 95%; /* It will take 95% of the container's width */
+        margin: 0 auto; /* Centers the map within the container */
+        margin-bottom: 160px;
+        margin-top: 60px;
+        border-radius: 15px;
+    }
+
+    @media (max-width: 768px) {
+        #map {
+            width: 90%; /* You can adjust the percentage as per your preference */
+            margin-left: 5%; /* Adjust the margin to center the map */
+            margin-right: 5%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        #map {
+            width: 85%; /* Adjusts the map width for smaller screens */
+            margin-left: 7.5%; /* Adjust the margin to center the map */
+            margin-right: 7.5%;
+        }
+    }
+
+    .popup {
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for a nice effect */
+        border-radius: 10px; /* Optional: Round the corners */
+        overflow: hidden;
+        z-index: 2000;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 40%;
+        height: 70%;
+        top: 50%; /* Center the popup vertically */
+        left: 50%; /* Center the popup horizontally */
+        transform: translate(-50%, -50%); /* Adjust the position to truly center the popup */
+        justify-content: center;
+
+    }
+
+    @media (max-width:390px) {
+        .popup {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for a nice effect */
+            border-radius: 10px; /* Optional: Round the corners */
+            overflow: hidden;
+            z-index: 2000;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 80%;
+            height: 60%;
+            top: 50%; /* Center the popup vertically */
+            left: 50%; /* Center the popup horizontally */
+            transform: translate(-50%, -50%); /* Adjust the position to truly center the popup */
+            justify-content: center;
+
+        }
+    }
+
+    #popup-image {
+        width: 100%;  /* Make the image fill the width of the popup */
+        height: 100%; /* Make the image fill the height of the popup */
+        object-fit: cover; /* Optional: To maintain the aspect ratio of the image */
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .arrow {
+        font-size: 4em;  /* Adjust the size of the arrow */
+        font-weight: 1000;  /* Make the arrow thicker */
+        position: absolute;
+        top: 50%;
+        font-size: 1.3em;
+        border: none; /* Remove the border */
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        color:white; /* Adjust the color as necessary 
+        text-shadow: 2.5px 2.5px 2px black, 2.5px 2.5px 2px rgb(65, 65, 65), 2.5px 2.5px 2px rgb(119, 119, 119), 2.5px 2.5px 2px rgb(196, 195, 195);
+*/    }
+
+    .left-arrow {
+        left: 15px;
+    }
+
+    .right-arrow {
+        right: 15px;
+    }
+    .arrow:hover {
+    background-color: rgba(255, 255, 255, 0.7); /* Increase the opacity of the background */
+    }
+
+    .left-arrow:hover {
+        font-size:1.4em;
+    }
+
+    .left-arrow:hover {
+        font-size:1.4em;
+    }
+</style>
 <title>About Me - Ilayda Koca</title>
 </head>
 <body>
@@ -12,42 +126,205 @@
     <nav>
         <ul>
             <li class="language-switcher">
-                <a href="about.html"><img src="images/american.png" alt="English Flag"> English</a> | 
-                <a href="about-tr.html"><img src="images/turkish.png" alt="Turkish Flag"> Türkçe</a>
+                <a href="about.html"><img src="images/american.png" alt="English Flag"></a> | 
+                <a href="about-tr.html"><img src="images/turkish.png" alt="Turkish Flag"></a>
             </li>
-            <li><a href="about-tr.html" class="active">Hakkımda</a></li>
-            <li><a href="experience-tr.html">Tecrübe</a></li>
-            <li><a href="projects-tr.html">Projelerim</a></li>
-            <li><a href="contact-tr.html">İletişim</a></li>
+            <li><a href="about-tr.html" class="active">hakkımda</a></li>
+            <li><a href="experience-tr.html">tecrübe</a></li>
+            <li><a href="projects-tr.html">projelerim</a></li>
+            <li><a href="contact-tr.html">iletişim</a></li>
         </ul>
     </nav>
-    <h2></h2>
 </header>
 <main>
-    <div class="about-section">
-        <img src="images/photo_visa.jpeg" alt="Ilayda Koca" class="headshot">
-
-        <div class="info">
-            <p><span class="label">OKUL:</span> Vanderbilt University</p>
+    <div class="content-container">
+        <div class="about-section">
+            <img src="images/photo_visa.jpeg" alt="Ilayda Koca" class="headshot">
+            <p><span class="label">OKUL:</span> Vanderbilt Universitesi</p>
             <p><span class="label">ANA DAL:</span> Bilgisayar Mühendisliği</p>
-            <p><span class="label">YAN DAL:</span> Veri Bilimi, Mühendislik Yönetimi</p>
+            <p><span class="label">YAN DAL:</span> Mühendislik İşletme,</p>
+            <p>Veri Bilimi</p>
             <p><span class="label">MEZUNİYET:</span> Mayıs 2025</p>
         </div>
-    </div>
-    <div class="bio">
-        <h2>Hakkımda</h2>
-        <p>Merhaba! Ben Ilayda Koca. Vanderbilt University Üniversitesinde üçüncü sınıf Bilgisauar Mühendisliği öğrencisiyim. </p>
-    </div>
-    <div class="playlists-section">
-        <h2>En Sevdiğim Çalma Listelerim</h2>
-        <div class="playlists-container">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1xbwVPV726vRmtZJWmcgAB?utm_source=generator" width="20%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3FDfPV9orzhPgghCZSyyIA?utm_source=generator" width="20%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3lf4LnRfhsCQQ6X2Rh5xBj?utm_source=generator" width="20%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6kCS7j1wm6vH6EAIUEkig3?utm_source=generator" width="20%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    
+        <div class="bio">
+            <h2>hakkımda</h2>
+            <hr class="header-separator">
+            <p>Merhaba! Ben Ilayda Koca.
+                <a href="https://www.vanderbilt.edu/" class="interactive-map-link">Vanderbilt Universitesi</a>nde
+                üçüncü sınıf
+                <a href="https://engineering.vanderbilt.edu/cs/" class="interactive-map-link"> Bilgisayar Mühendisliği</a>
+                öğrencisiyim.</p>
+                <p>Karakterim hakkında kişisel bir bakış açısı elde etmek için birlikte çalışma şansı bulduğum arkadaş, profesör ve iş arkadaşlarımın
+                    <a href="#testimonials" class="interactive-map-link"> kişisel referansları</a>na göz atın.</p>
+            <h3>araştırma alanım</h3>
+            <hr class="header-separator-2">
+            <p>
+                <a href="https://wp0.vanderbilt.edu/oele/" class="interactive-map-link">Open Ended Learning Environments Lab</a>
+                'deki araştırma odağım, öğrencilerin öğrenim tecrübesi ve becerisini geliştirmek amaçlı yeni bir
+                <a href="https://wp0.vanderbilt.edu/oele/teachable-agents/" class="interactive-map-link">Öğrenebilir Dijital Eğitmen</a>
+                geliştirmek.
+            </p>
+            <p>Özellikle
+                <span class="label-2">computer vision</span>
+                ve 
+                <span class="label-2"> natural language processing (NLP)</span>
+                kullanılarak geliştirilen yapay zeka destekli öğrenim platformları üzerine ilgileniyorum. Teknik becerilerimi sınıf içi öğrenmede devrim yaratmak, etkileşimli öğrenme değerlendirmeleri ve otomatik notlandırma için araçlar geliştirmek için kullanmayı hedefliyorum.</p>
+            <h4>what i'm up to now</h4>
+            <hr class="header-separator-4">
+            <p>Şu anda derslerle, araştırmayla ve öğretim asistanlığıyla uğraşıyorum, CLAS projesi üzerinde çalışıyorum ve 
+                <a href="https://www.sybbure.org/" class="interactive-map-link">Sybbure Searle Araştırma Programı</a> için harika şeyler yapıyorum.</p> 
+                Çalışmaktan arda kalan vaktimde, Türkçe pop ve rap/hiphop başta olmak üzere müzik dinlerken egzersiz yapmayı, özellikle de kuvvet antrenmanı ve ağırlık kaldırmayı seviyorum. Güncel
+            <a href="#playlists", class="interactive-map-link">favori çalma listelerim</a>e göz atabilirsiniz.
+            <p>Seyahat etmeyi ve yeni kültürler keşfetmeyi severim. Bu
+                <a href="#my-map-id" class="interactive-map-link">etkileşimli harita</a>da en sevdiğim sehirlerden bazılarını keşfedin.
+            </p><p>Ayrıca film izlemeyi de seviyorum ve sürekli olarak favori filmler listeme ekliyorum.</p>
         </div>
     </div>
 </main>
+<div class="playlists-section", id="playlists">
+    <h2>favori çalma listelerim</h2>
+    <hr class="header-separator-5">
+    <div class="playlists-container">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1xbwVPV726vRmtZJWmcgAB?utm_source=generator" width="22%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3FDfPV9orzhPgghCZSyyIA?utm_source=generator" width="22%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/3lf4LnRfhsCQQ6X2Rh5xBj?utm_source=generator" width="22%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/6kCS7j1wm6vH6EAIUEkig3?utm_source=generator" width="22%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+</div>
+<div class="my-map", id="my-map-id">
+    <h5>seyahat serüvenim</h5>
+    <hr class="header-separator-51">
+    <p class="map-intro">İşte favori destinasyonlarımdan bazılarının etkileşimli haritası. Amerika ve Avrupa’da gezdiğim yerlerden bazılarını aşağıda keşfedebilirsiniz.
+        <br>Daha fazlasını görmek için haritadaki bir şehre tıklayın!</p>
+    <div id="map"></div>
+        <div class="popup" id="image-popup">
+            <span class="close-btn" onclick="closePopup()">X</span>
+            <button class="arrow left-arrow" onclick="previousImage()">◀</button>
+            <img alt="Popup Image" id="popup-image" src=""/>
+            <button class="arrow right-arrow" onclick="nextImage()">▶</button>
+        </div> 
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        var map;
+
+        var width = window.innerWidth;
+        if (width <= 480) {
+            map = L.map('map').setView([37.8, -96], 2.6); // For very small screens
+        } else if (width <= 768) {
+            map = L.map('map').setView([37.8, -96], 2.6); // For medium screens
+        } else {
+            map = L.map('map').setView([37.8, -46], 2.6); // For large screens
+        }
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var citiesVisited = [
+            { name: "New York", coords: [40.7128, -74.0060], image: ['images-city/nyc.png','images-city/nyc-3.png','images-city/nyc-4.png','images-city/nyc-6.png','images-city/nyc-7.png']},
+            { name: "Los Angeles", coords: [34.0522, -118.2437], image: ['images-city/la-2.png','images-city/la-3.png','images-city/la-4.png','images-city/la-5.png','images-city/la-6.png','images-city/la-7.png','images-city/la-8.png','images-city/la-9.png','images-city/la-10.png','images-city/la-11.png','images-city/la-12.png']},
+            { name: "Atlanta", coords: [33.7490, -84.3880], image: ['images-city/atl-1.png','images-city/atl-2.png','images-city/atl-3.png','images-city/atl-4.png','images-city/atl-5.png'] },
+            { name: "Nashville", coords: [36.1627, -86.7816], link: "nashville_photos.html" },
+            { name: "Seattle", coords: [47.6062, -122.3321], image: ['images-city/sea-1.png','images-city/sea-2.png','images-city/sea-3.png','images-city/sea-4.png','images-city/sea-5.png','images-city/sea-6.png','images-city/sea-7.png','images-city/sea-8.png'] },
+            { name: "San Francisco", coords: [37.7749, -122.4194], image: ['images-city/sf.png','images-city/sf-2.png','images-city/sf-3.png','images-city/sf-4.png','images-city/sf-5.JPG','images-city/sf-6.JPG'] },
+            { name: "Boston", coords: [42.3601, -71.0589], link: "boston_photos.html" },
+            { name: "Panama City Beach", coords: [30.1766, -85.8055], image: ['images-city/pcb-1.png','images-city/pcb-2.png','images-city/pcb-3.png','images-city/pcb-4.png','images-city/pcb-5.png','images-city/pcb-6.png'] },
+            { name: "Miami", coords: [25.7617, -80.1918], image: ['images-city/mia-1.png','images-city/mia-2.png','images-city/mia-3.png','images-city/mia-4.png','images-city/mia-5.png'] },
+            { name: "Orlando", coords: [28.5383, -81.3792], link: "orlando_photos.html" },
+            { name: "Key West", coords: [24.5551, -81.7800], image: ['images-city/key-1.png','images-city/key-2.png'] },
+            { name: "Cozumel", coords: [20.4220, -86.9223], image: ['images-city/coz-1.png','images-city/coz-2.png','images-city/coz-3.png','images-city/coz-4.png','images-city/coz-5.png','images-city/coz-6.png'] },
+            { name: "Washington DC", coords: [38.9072, -77.0369], image: ['images-city/dc-1.png','images-city/dc-2.png','images-city/dc-3.png','images-city/dc-4.png','images-city/dc-5.png','images-city/dc-6.png','images-city/dc-7.png','images-city/dc-10.png','images-city/cd11.png','images-city/dc-12.png'] },
+            { name: "Las Vegas", coords: [36.1699, -115.1398], image: ['images-city/vegas-1.png','images-city/vegas-2.png'] },
+            { name: "Thessaloniki", coords: [40.6401, 22.9444], link: "thessaloniki_photos.html" },
+            { name: "Istanbul", coords: [41.0082, 28.9784], link: "istanbul_photos.html" },
+            { name: "Plovdiv", coords: [42.1354, 24.7453], link: "plovdiv_photos.html" },
+            { name: "Vienna", coords: [48.2082, 16.3738], link: "vienna_photos.html" },
+            { name: "Brussels", coords: [50.8503, 4.3517], link: "brussels_photos.html" },
+            { name: "Paris", coords: [48.8566, 2.3522], link: "paris_photos.html" },
+            { name: "Amsterdam", coords: [52.3676, 4.9041], link: "amsterdam_photos.html" },
+            { name: "Izmir", coords: [38.4237, 27.1428], link: "izmir_photos.html" },
+            { name: "Ankara", coords: [39.9334, 32.8597], link: "ankara_photos.html" },
+            { name: "Klagenfurt", coords: [46.6247, 14.3053], link: "klagenfurt_photos.html" },
+            { name: "Köln", coords: [50.9375, 6.9603], link: "koln_photos.html" },
+
+        ];
+        
+        const cityImages = {
+            "New York": ['images-city/nyc.png', 'images-city/nyc-3.png','images-city/nyc-4.png','images-city/nyc-6.png','images-city/nyc-7.png'],
+            "Los Angeles": ['images-city/la-2.png','images-city/la-3.png','images-city/la-4.png','images-city/la-5.png','images-city/la-6.png','images-city/la-7.png','images-city/la-8.png','images-city/la-9.png','images-city/la-10.png','images-city/la-11.png','images-city/la-12.png'],
+            "San Francisco": ['images-city/sf.png','images-city/sf-2.png','images-city/sf-3.png','images-city/sf-4.png','images-city/sf-5.JPG','images-city/sf-6.JPG'],
+            "Las Vegas": ['images-city/vegas-1.png','images-city/vegas-2.png'],
+            "Miami": ['images-city/mia-1.png','images-city/mia-2.png','images-city/mia-3.png','images-city/mia-4.png','images-city/mia-5.png'],
+            "Atlanta": ['images-city/atl-1.png','images-city/atl-2.png','images-city/atl-3.png','images-city/atl-4.png','images-city/atl-5.png'],
+            "Key West": ['images-city/key-1.png','images-city/key-2.png'],
+            "Cozumel": ['images-city/coz-1.png','images-city/coz-2.png','images-city/coz-3.png','images-city/coz-4.png','images-city/coz-5.png','images-city/coz-6.png'],
+            "Seattle": ['images-city/sea-1.png','images-city/sea-2.png','images-city/sea-3.png','images-city/sea-4.png','images-city/sea-5.png','images-city/sea-6.png','images-city/sea-7.png','images-city/sea-8.png'],
+            "Panama City Beach": ['images-city/pcb-1.png','images-city/pcb-2.png','images-city/pcb-3.png','images-city/pcb-4.png','images-city/pcb-5.png','images-city/pcb-6.png'],
+            "Washington DC": ['images-city/dc-1.png','images-city/dc-2.png','images-city/dc-3.png','images-city/dc-4.png','images-city/dc-5.png','images-city/dc-6.png','images-city/dc-7.png','images-city/dc-10.png','images-city/dc11.png','images-city/dc-12.png'],
+        };
+
+        let currentCity = "New York"; // Default city
+        let currentImageIndex = 0;
+
+        function previousImage() {
+            if (currentImageIndex > 0) {
+                currentImageIndex--;
+            } else {
+                currentImageIndex = cityImages[currentCity].length - 1; // Loop back to the last image
+            }
+            document.getElementById('popup-image').src = cityImages[currentCity][currentImageIndex];
+        }
+
+        function nextImage() {
+            if (currentImageIndex < cityImages[currentCity].length - 1) {
+                currentImageIndex++;
+            } else {
+                currentImageIndex = 0; // Loop back to the first image
+            }
+            document.getElementById('popup-image').src = cityImages[currentCity][currentImageIndex];
+        }
+
+
+        function openPopup(cityIndex) {
+            currentImageIndex = 0;
+            currentCity = citiesVisited[cityIndex].name;
+            currentCityImages = citiesVisited[cityIndex].image;
+            document.getElementById('image-popup').style.display = 'flex';
+            document.getElementById('popup-image').src = currentCityImages[currentImageIndex];
+        }
+
+        function closePopup() {
+            document.getElementById('image-popup').style.display = 'none';
+        }
+
+        // Function to initialize the map and add markers (this is just a placeholder, you'll need to integrate it with your actual map initialization code)
+        function initializeMap() {
+            for (let i = 0; i < citiesVisited.length; i++) {
+                let city = citiesVisited[i];
+                var marker = L.marker(city.coords).addTo(map);
+                marker.bindTooltip(city.name, { permanent: true }).openTooltip();
+                    
+                // Add a click event listener to the marker to open the pop-up with the respective image
+                marker.on('click', function() {
+                    openPopup(i);  // Pass the index of the city to the openPopup function
+                });
+            };
+        }
+
+        document.addEventListener('DOMContentLoaded', initializeMap);
+        document.addEventListener('click', function(event) {
+            var popup = document.getElementById('image-popup');
+            if (event.target !== popup && !popup.contains(event.target)) {
+                closePopup();
+            }
+        }, true);
+
+    </script>
+</div>
+<div class="testimonials-section", id="testimonials">
+    <h6>referanslar</h6>
+    <hr class="header-separator-6">
+    <p></p>
+</div>
 </body>
 </html>

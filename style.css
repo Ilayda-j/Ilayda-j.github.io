@@ -233,7 +233,7 @@ h2 {
 .language-switcher {
     position: fixed;
     top: 15px;
-    right: 30px;
+    right: 80px;
     background-color: white;
     padding: 5px;
     border-radius: 5px;
@@ -406,7 +406,28 @@ h2 {
 .header-separator-6 {
     border: 0; 
     border-bottom: 1px solid rgb(213, 213, 213); 
-    width: 100%; 
+    width: 95%; 
     margin-left:35px;
     margin-top: -72px;
+}
+
+.testimonials-section .person-name {
+    font-size: 2em;
+    font-style: italic;
+    color: rgb(31, 31, 31);
+    margin-left: 60px;
+    margin-top: 60px;
+}
+
+.testimonials-section .person-title {
+    margin-left: 60px;
+    margin-right:60px;
+    margin-top: 0px; /* Adjusted the margin-top to reduce the gap */
+    color: rgb(86, 85, 85);
+}
+
+.testimonials-section .testemony {
+    margin-left: 60px;
+    margin-top: 70px;
+    margin-right: 60px;
 }
