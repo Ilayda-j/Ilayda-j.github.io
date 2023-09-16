@@ -79,6 +79,15 @@ header nav ul li a {
     }
 }
 
+@media (max-width:400px) {
+    body h1 {
+        font-size: 5em !important; /* Increase the font size */
+        text-align: center !important; /* Center the text */
+        margin-top: 30vh !important; /* Center vertically on the page */
+        transform: translateY(-50%) !important; /* Adjust the positioning */
+    }
+}
+
 main {
     padding: 20px;
 }
