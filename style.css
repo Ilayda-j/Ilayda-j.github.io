@@ -88,6 +88,22 @@ footer {
     width: 100%;
 }
 
+.footer {
+    text-align: center;
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-1 {
+    text-align: center;
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+    margin-top: 90px;
+}
+
+
 body h1 {
     font-size: 5em !important; /* Increase the font size */
     text-align: center !important; /* Center the text */
@@ -108,6 +124,7 @@ h2 {
     gap: 30px;
 }
 
+
 .social-icons a {
     display: block;
     width: 30px;
@@ -123,6 +140,15 @@ h2 {
     font-weight: bold;
     font-size: 1em;
     margin-bottom: -22px;
+    margin-left: -2px;
+    color: rgb(58, 57, 57);
+}
+
+.header-experience h2{
+    font-weight: bold;
+    font-size: 1em;
+    margin-top: 200px;
+    margin-bottom: -30px;
     margin-left: -2px;
     color: rgb(58, 57, 57);
 }
@@ -163,6 +189,21 @@ h2 {
     padding: 20px;
 }
 
+.about-section-2 {
+    flex: 1 1 50%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-top: 0px;
+}
+
+.bio-2 {
+    flex: 1 1 45%;
+    min-width: 0px;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-top: 0px;
+}
+
 .bio {
     flex: 1 1 65%;
     min-width: 0px;
@@ -176,7 +217,13 @@ h2 {
 }
 
 .content-container {
-    margin-top: 200px;
+    margin-top: 70px;
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+}
+.content-container-2 {
+    margin-top: 10px;
     align-items: flex-start;
     display: flex;
     flex-wrap: wrap;
@@ -370,6 +417,11 @@ h2 {
     background-size: 100% 2px, 0% 1px; /* Increase the size of the gradient line to 100% and set the gray line to 0% on hover */
 }
 
+.header-skills {
+    margin-top: -50px;
+    margin-bottom: 0px;
+}
+
 .header-separator {
     border: 0; 
     border-bottom: 1px solid rgb(213, 213, 213); 
@@ -420,6 +472,29 @@ h2 {
     width: 95%; 
     margin-left:35px;
     margin-top: -72px;
+}
+
+.header-separator-7 {
+    border: 0; 
+    border-bottom: 1px solid rgb(213, 213, 213); 
+    width: 100%; 
+    margin-bottom: -100px;
+    margin-left:0px;
+    margin-top: 5px;
+}
+
+.header-separator-8 {
+    border: 0; 
+    border-bottom: 1px solid rgb(213, 213, 213); 
+    width: 100%; 
+    margin-bottom: 0px;
+    margin-left:0px;
+    margin-top: -52px;
+}
+
+.bold{
+    font-weight: bold;
+    display: inline;
 }
 
 .testimonials-section .person-name {
