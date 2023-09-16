@@ -160,6 +160,13 @@ h2 {
     }
 }
 
+@media (max-width:390px) {
+    .headshot {
+        width: 300px; /* Setting a specific width */
+        height: 300px; /* Setting a specific height */
+    }  
+}
+
 .label {
     font-weight: bold;
 }
