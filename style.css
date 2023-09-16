@@ -183,6 +183,7 @@ h2 {
 }
 
 .playlists-container {
+    min-width: 40px;
     display: flex;
     gap: 10px; /* Adds space between the playlists */
     justify-content: center; /* Centers the playlists horizontally */
@@ -191,6 +192,7 @@ h2 {
 
 .playlists-container iframe {
     margin: 10px; /* Adds margin around each playlist */
+    min-width: 220px;
 }
 
 .language-switcher {
